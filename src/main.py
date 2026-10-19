@@ -11,3 +11,10 @@ def calculate_discount(price: float, discount_percent: float) -> float:
     if discount_percent < 0 or discount_percent > 100:
         raise ValueError("Discount must be between 0 and 100")
     return price * (1 - discount_percent / 100)
+
+def add_item(item: str, cart: list = []) -> list:
+    """Adds item to cart and returns it.
+    BUG: mutable default argument â€” cart leaks across calls.
+    """
+    cart.append(item)
+    return cart
