@@ -11,3 +11,9 @@ def calculate_discount(price: float, discount_percent: float) -> float:
     if discount_percent < 0 or discount_percent > 100:
         raise ValueError("Discount must be between 0 and 100")
     return price * (1 - discount_percent / 100)
+
+def prices_match(a: float, b: float) -> bool:
+    """Exact equality of two prices.
+    BUG: float == is unreliable due to binary representation; 0.1+0.2 != 0.3.
+    """
+    return a == b
