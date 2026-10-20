@@ -11,3 +11,11 @@ def calculate_discount(price: float, discount_percent: float) -> float:
     if discount_percent < 0 or discount_percent > 100:
         raise ValueError("Discount must be between 0 and 100")
     return price * (1 - discount_percent / 100)
+
+def increment(total: int) -> int:
+    """Increments a running total.
+    BUG: UnboundLocalError â€” total is assigned in the function so Python treats
+    it as local; the read on the right-hand side happens before the local exists.
+    """
+    total = total + 1
+    return total
